@@ -1,24 +1,13 @@
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"os"
-)
+import "fmt"
+
+type Message struct {
+	Hello string
+}
 
 func main() {
-	// fmt.Println("What is your name? >")
-	file, _ := os.OpenFile("file.txt", os.O_RDONLY, 0666)
-	defer file.Close()
-	reader := bufio.NewReader(file)
-	for {
+	h := Message{Hello: "Girl"}
 
-		readFile, err := reader.ReadString('\n')
-		fmt.Printf("-> %s", readFile)
-		if err != nil {
-			return
-
-		}
-	}
-
+	fmt.Printf("%s \n", h)
 }
